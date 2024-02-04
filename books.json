@@ -1,0 +1,36 @@
+[
+    {
+      "_id": 1,
+      "title": "The Murder of Roger Ackroyd",
+      "genre": {
+        "_id": 1,
+        "name": "Mystery"
+      },
+      "authors": [1],
+      "year": 1926,
+      "rating": 4.5
+    },
+    {
+      "_id": 2,
+      "title": "Foundation",
+      "genre": {
+        "_id": 2,
+        "name": "Science Fiction"
+      },
+      "authors": [2],
+      "year": 1951,
+      "rating": 4.7
+    },
+    {
+      "_id": 3,
+      "title": "Pride and Prejudice",
+      "genre": {
+        "_id": 3,
+        "name": "Romance"
+      },
+      "authors": [3],
+      "year": 1813,
+      "rating": 4.8
+    }
+  ]
+  

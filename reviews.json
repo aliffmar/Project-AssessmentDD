@@ -1,0 +1,24 @@
+[
+    {
+      "_id": 1,
+      "book_id": 1,
+      "user_id": 101,
+      "rating": 4,
+      "comment": "Agatha Christie's mysteries never disappoint. A classic!"
+    },
+    {
+      "_id": 2,
+      "book_id": 2,
+      "user_id": 202,
+      "rating": 5,
+      "comment": "Isaac Asimov's Foundation series is a masterpiece of science fiction."
+    },
+    {
+      "_id": 3,
+      "book_id": 3,
+      "user_id": 303,
+      "rating": 4.5,
+      "comment": "Jane Austen's Pride and Prejudice is a timeless romance."
+    }
+  ]
+  

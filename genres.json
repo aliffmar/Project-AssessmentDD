@@ -1,0 +1,43 @@
+[
+    {
+      "_id": 1,
+      "name": "Mystery"
+    },
+    {
+      "_id": 2,
+      "name": "Science Fiction"
+    },
+    {
+      "_id": 3,
+      "name": "Romance"
+    },
+    {
+      "_id": 4,
+      "name": "Fantasy"
+    },
+    {
+      "_id": 5,
+      "name": "Thriller"
+    },
+    {
+      "_id": 6,
+      "name": "Historical Fiction"
+    },
+    {
+      "_id": 7,
+      "name": "Non-Fiction"
+    },
+    {
+      "_id": 8,
+      "name": "Biography"
+    },
+    {
+      "_id": 9,
+      "name": "Self-Help"
+    },
+    {
+      "_id": 10,
+      "name": "Poetry"
+    }
+  ]
+  
