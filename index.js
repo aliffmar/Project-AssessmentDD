@@ -60,7 +60,7 @@ async function main() {
 
         const newBook = { title, genre, authors, year, rating };
         const result = await booksCollection.insertOne(newBook);
-
+        console.log('Result:', result); // Add this line for logging
         res.status(201).json(result.ops[0]);
       } catch (error) {
         res.status(500).json({ message: 'Error adding new book', error: error.message });
