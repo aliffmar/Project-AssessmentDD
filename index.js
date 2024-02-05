@@ -4,6 +4,7 @@ const { json } = require('express');
 const { connectToMongoDB } = require('./db');
 const { ObjectId } = require('mongodb');
 
+
 const app = express();
 const port = 3000;
 
@@ -136,6 +137,23 @@ async function main() {
         res.json({ message: 'Book updated successfully' });
       } catch (error) {
         res.status(500).json({ message: 'Error updating book', error: error.message });
+      }
+    });
+
+    app.delete('/books/:id', async (req, res) => {
+      try {
+        const id = new ObjectId(req.params.id);
+        
+        // Assuming `booksCollection` is your MongoDB collection for books
+        const result = await booksCollection.deleteOne({ _id: id });
+    
+        if (result.deletedCount === 0) {
+          return res.status(404).json({ message: 'No book found with this ID' });
+        }
+    
+        res.json({ message: 'Book deleted successfully' });
+      } catch (error) {
+        res.status(500).json({ message: 'Error deleting book', error: error.message });
       }
     });
     
