@@ -19,20 +19,21 @@ router.post('/', async function(req, res){
         res.json({
             results
         });
-   
+        router.post('/login', async function (req, res)  {
+            try {
+                const db = getDB();
+                const user = await db.collection("users").findOne({ username: req.body.username });
+                if (user && await bcrypt.compare(req.body.password, user.password)) {
+                    const token = jwt.sign({ userId: user._id }, jwtSecret, { expiresIn: '1h' });
+                    res.json({ token });
+                } else {
+                    res.status(401).json({ message: 'Invalid credentials' });
+                }
+            } catch (err) {
+                res.status(500).json({ error: err.message });
+            }
+        });
 
 });
-router.post('/login', async function (req, res)  {
-    try {
-        const db = getDB();
-        const user = await db.collection("users").findOne({ username: req.body.username });
-        if (user && await bcrypt.compare(req.body.password, user.password)) {
-            const token = jwt.sign({ userId: user._id }, jwtSecret, { expiresIn: '1h' });
-            res.json({ token });
-        } else {
-            res.status(401).json({ message: 'Invalid credentials' });
-        }
-    } catch (err) {
-        res.status(500).json({ error: err.message });
-    }
+
 module.exports = router;
