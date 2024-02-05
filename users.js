@@ -4,6 +4,25 @@ const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 const {getDB} = require('./db');
 require('dotenv').config();
+const { authenticateToken } = require('./middlewares');
+const { ObjectId } = require('mongodb');
+
+router.get('/profile', authenticateToken, async function(req,res){
+    const userId = req.user.userId;
+    const db = getDB();
+    const user = await db.collection("users").findOne({
+        _id: new ObjectId(userId)
+    }, {
+        projection:{
+            'password': 0
+        }
+    });
+
+    res.json({
+        user
+    });
+
+})
 
 const jwtSecret = process.env.JWT_SECRET;
 
