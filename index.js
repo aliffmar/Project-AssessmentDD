@@ -157,6 +157,7 @@ async function main() {
       }
     });
     
+    app.use('/users', require('./users'));
 
     app.listen(port, () => {
       console.log(`Server is running on port ${port}`);
