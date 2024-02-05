@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
-const {getDB} = require('./mongoUtil');
+const {getDB} = require('./db');
 require('dotenv').config();
 
 const jwtSecret = process.env.JWT_SECRET;
