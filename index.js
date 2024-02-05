@@ -1,8 +1,9 @@
 const express = require('express');
 const cors = require('cors');
 const { json } = require('express');
-const { connectToMongoDB } = require('./db');
+const { connectToMongoDB, getDB } = require('./db');
 const { ObjectId } = require('mongodb');
+const apiRouter = require('./routes/api');
 
 
 const app = express();
@@ -16,7 +17,8 @@ let db; // Declare db globally
 
 async function main() {
   try {
-    db = await connectToMongoDB();
+     await connectToMongoDB();
+     db = getDB();
     console.log('Connected to MongoDB');
 
     // Define the books collection
@@ -158,6 +160,7 @@ async function main() {
     });
 
     app.use('/users', require('./users'));
+    app.use('/api', apiRouter);
 
     app.listen(port, () => {
       console.log(`Server is running on port ${port}`);
